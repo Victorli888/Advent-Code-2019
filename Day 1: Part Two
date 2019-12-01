@@ -1,0 +1,28 @@
+with open('input.txt', 'r' ) as data:
+    mass =  [int(line.strip())for line in data]
+
+
+
+def math(mass):
+  total_fuel = 0
+  for i in mass:
+    calculated = i // 3 - 2
+    total_fuel += calculated
+    return total_fuel
+
+total_fuel = math(mass)
+print(f'{total_fuel} is how much fuel you need to launch')
+
+new = 0
+fuel_for_fuel = 0
+subtotal_fuel = total_fuel
+
+while subtotal_fuel > 0:
+    new = subtotal_fuel // 3 -2
+    subtotal_fuel = new
+    fuel_for_fuel += new
+
+grand_total = fuel_for_fuel + total_fuel
+
+print(f'{fuel_for_fuel} is how much you fuel to launch your fuel')
+print(f'{grand_total} is the total amount of fuel you need to launch')
